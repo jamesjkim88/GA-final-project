@@ -10,7 +10,7 @@ async function getYoutubeData(req, res){
       order: 'date',
       q: `${this.defaultQ}`,
       relevanceLanguage: 'en',
-      key: "AIzaSyAZI_uW6ynmECG-HbCYU2xq7h6pIx1e_UM"
+      key: ""
     }
   }).then(data => {
     console.log("youtube data: ", data);
