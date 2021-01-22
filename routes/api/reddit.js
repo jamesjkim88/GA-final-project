@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/users');
+const redditCtrl = require('../../controllers/reddit');
 const multer = require('multer');
 const upload = multer();
+// /*---------- Public Routes ----------*/
 
-/*---------- Public Routes ----------*/
-router.post('/signup', upload.single('photo'), usersCtrl.signup);
-router.post('/login', usersCtrl.login);
+router.get('/', redditCtrl.getRedditData)
 
 
 /*---------- Protected Routes ----------*/

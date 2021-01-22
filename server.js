@@ -18,6 +18,9 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(require('./config/auth')); 
 // api routes must be before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/covid19', require('./routes/api/covid19'));
+app.use('/api/reddit', require('./routes/api/reddit'));
+app.use('/api/youtube', require('./routes/api/youtube'));
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

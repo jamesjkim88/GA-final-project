@@ -1,12 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const usersCtrl = require('../../controllers/users');
+const covid19Ctrl = require('../../controllers/covid19');
 const multer = require('multer');
 const upload = multer();
+// /*---------- Public Routes ----------*/
 
-/*---------- Public Routes ----------*/
-router.post('/signup', upload.single('photo'), usersCtrl.signup);
-router.post('/login', usersCtrl.login);
+router.get('/', covid19Ctrl.getCovid19Data)
 
 
 /*---------- Protected Routes ----------*/
