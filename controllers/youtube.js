@@ -2,18 +2,17 @@ const axios = require('axios').default;
 
 async function getYoutubeData(req, res){
   console.log("getting youtube data");
-  const defaultQ = "coronavirus covid-19 news";
   await axios.get('https://www.googleapis.com/youtube/v3/search', {
     params: {
       part: 'snippet',
-      maxResults: 50,
+      maxResults: 5,
       order: 'date',
-      q: `${this.defaultQ}`,
+      q: "covid-19 news",
       relevanceLanguage: 'en',
-      key: ""
+      key: "AIzaSyAZI_uW6ynmECG-HbCYU2xq7h6pIx1e_UM"
     }
-  }).then(data => {
-    console.log("youtube data: ", data);
+  }).then(({data}) => {
+    console.log("youtube data: ", data.items);
     res.status(200).json(data);
   }).catch(err => console.log("error: ", err))
 }

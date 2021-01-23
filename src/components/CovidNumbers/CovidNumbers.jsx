@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import apiServce from '../../utils/apiService';
+import { List } from 'semantic-ui-react';
 
 export default function CovidNumbers(){
-
-  const [covid19Data, setCovid19Data] = useState([]);
+  const [covid19Confirmed, setCovid19Confirmed] = useState({});
+  const [covid19Recovered, setCovid19Recovered] = useState({});
+  const [covid19Deaths, setCovid19Deaths] = useState({});
 
   async function getCovid19Data(){
     try{
       const data = await apiServce.getCovid19Data();
-      // setCovid19Data(data)
-      console.log(data);
+      setCovid19Confirmed(data.data.confirmed);
+      setCovid19Recovered(data.data.recovered);
+      setCovid19Deaths(data.data.deaths);
     }catch(err){
       console.log(err)
     }
@@ -18,11 +21,23 @@ export default function CovidNumbers(){
     getCovid19Data()
   }, [])
 
-  console.log(covid19Data);
-
   return(
-    <>
-    <h1>{covid19Data}</h1>
-    </>
+    <List>
+      <List.Item>
+        <List.Header>Total confirmed:</List.Header>{ covid19Confirmed.value }
+      </List.Item>
+      <List.Item>
+        <List.Header>Total Recovered:</List.Header>
+        { covid19Recovered.value }
+      </List.Item>
+      <List.Item>
+        <List.Header>Total Deaths:</List.Header>
+        { covid19Deaths.value }
+      </List.Item>
+      <List.Item>
+        <List.Header>San Francisco</List.Header>
+        What a lovely city
+      </List.Item>
+    </List>
   )
 }

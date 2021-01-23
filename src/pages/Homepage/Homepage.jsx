@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import Navbar from '../../components/Navbar/Navbar'
+import React, { useState, useEffect } from 'react';
+import { Grid, Segment } from 'semantic-ui-react';
+import Navbar from '../../components/Navbar/Navbar';
 import CovidNumbers from '../../components/CovidNumbers/CovidNumbers';
 import CovidVideos from '../../components/CovidVideos/CovidVideos';
 import CovidReddit from '../../components/CovidReddit/CovidReddit';
@@ -12,11 +13,25 @@ export default function Homepage({ user }){
   return(
     <>
       <Navbar user={user}/>
-      { user ? <h1>Home page for {user.username} har</h1> : <h1>no user</h1> }
-      <CovidNumbers/>
-      <CovidVideos />
-      <CovidReddit />
-      <CovidArticles />
+      { user ? <h1>Home page for {user.username} har</h1> : <br/> }
+      
+      
+      
+      
+      <Grid columns={3} divided>
+    <Grid.Row stretched>
+      <Grid.Column>
+        <Segment><CovidNumbers/></Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment><CovidVideos/></Segment>
+      </Grid.Column>
+      <Grid.Column>
+        <Segment className="threads reddit"><CovidReddit /></Segment>
+        <Segment className="threads articles"><CovidArticles /></Segment>
+      </Grid.Column>
+    </Grid.Row>
+  </Grid>
     </>
   )
 }

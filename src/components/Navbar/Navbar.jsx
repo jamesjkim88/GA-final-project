@@ -5,7 +5,7 @@ export default function({ user }){
   return(
     <Menu>
     <Menu.Item>Home</Menu.Item>
-    <Dropdown text={ user.username } pointing className='link item'>
+    <Dropdown text={ user ? user.username : 'profile' } pointing className='link item'>
       <Dropdown.Menu>
         <Dropdown.Header>Categories</Dropdown.Header>
         <Dropdown.Item>

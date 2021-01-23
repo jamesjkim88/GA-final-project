@@ -3,29 +3,37 @@
 */
 import axios from 'axios'
 
-// function getRedditAPI(){
-//   axios.get('https://www.reddit.com/r/Coronavirus.json')
-//     .then(res => res.json())
-//     .then(err => console.log(err));
-// };
-
-async function getCovid19Data(){
-  const data = await axios.get('/api/covid19');
-  console.log(data);
+function getCovid19Data(){
+  return axios.get('/api/covid19')
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
 }
 
-async function getRedditData(){
-  const data = await axios.get('/api/reddit');
-  console.log("reddit data: ", data);
+function getRedditData(){
+  return axios.get('/api/reddit')
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
 }
 
-async function getYoutubeData(){
-  const data = await axios.get('/api/youtube');
-  console.log("youtube data: ", data);
+function getYoutubeData(){
+  return axios.get('/api/youtube')
+    .then(data =>{
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
+}
+
+function getNewsArticles(){
+  return axios.get('/api/articles')
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
 }
 
 export default {
   getCovid19Data,
   getRedditData,
-  getYoutubeData
+  getYoutubeData,
+  getNewsArticles
 }

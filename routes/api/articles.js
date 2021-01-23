@@ -1,9 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const youtubeCtrl = require('../../controllers/youtube');
+const articlesCtrl = require('../../controllers/articles');
 // /*---------- Public Routes ----------*/
 
-router.get('/', youtubeCtrl.getYoutubeData)
+router.get('/', articlesCtrl.getArticleData)
 
 
 /*---------- Protected Routes ----------*/
