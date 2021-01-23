@@ -15,6 +15,7 @@ export default function CovidReddit(){
       console.log(err)
     }
   }
+  
   useEffect(() => {
     getRedditData()
   }, [])
