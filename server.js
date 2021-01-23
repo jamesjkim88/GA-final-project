@@ -22,6 +22,8 @@ app.use('/api/covid19', require('./routes/api/covid19'));
 app.use('/api/reddit', require('./routes/api/reddit'));
 app.use('/api/youtube', require('./routes/api/youtube'));
 app.use('/api/articles', require('./routes/api/articles'));
+app.use('/api/covid19/country', require('./routes/api/covid19Country'));
+app.use('/api/covid19/countries', require('./routes/api/covid19Countries'));
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

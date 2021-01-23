@@ -10,6 +10,20 @@ function getCovid19Data(){
     }).catch(err => console.log(err))
 }
 
+function getCovid19CountryData(){
+  return axios.get('/api/covid19/country')
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
+}
+
+function getCountries(){
+  return axios.get('/api/covid19/countries')
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log(err))
+}
+
 function getRedditData(){
   return axios.get('/api/reddit')
     .then(data => {
@@ -35,5 +49,7 @@ export default {
   getCovid19Data,
   getRedditData,
   getYoutubeData,
-  getNewsArticles
+  getNewsArticles,
+  getCovid19CountryData,
+  getCountries
 }
