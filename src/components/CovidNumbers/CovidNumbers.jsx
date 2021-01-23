@@ -88,10 +88,10 @@ export default function CovidNumbers(){
       </List.Item>
     </List>
     <Dropdown fluid search selection placeholder='Select country'>
-    <Dropdown.Menu>
-      {listCountries}
-    </Dropdown.Menu>
-  </Dropdown>
+      <Dropdown.Menu>
+        {listCountries}
+      </Dropdown.Menu>
+    </Dropdown>
     </>
   )
 }
