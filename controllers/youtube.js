@@ -1,18 +1,18 @@
 const axios = require('axios').default;
+require('dotenv').config();
 
 async function getYoutubeData(req, res){
   console.log("getting youtube data");
   await axios.get('https://www.googleapis.com/youtube/v3/search', {
     params: {
       part: 'snippet',
-      maxResults: 5,
+      maxResults: 1,
       order: 'date',
       q: "covid-19 news",
       relevanceLanguage: 'en',
-      key: ""
+      key: process.env.YOUTUBE_KEY
     }
   }).then(({data}) => {
-    console.log("youtube data: ", data.items);
     res.status(200).json(data);
   }).catch(err => console.log("error: ", err))
 }

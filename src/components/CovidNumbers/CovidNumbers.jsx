@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import apiServce from '../../utils/apiService';
+import apiService from '../../utils/apiService';
 import { List, Dropdown } from 'semantic-ui-react';
 
 export default function CovidNumbers(){
@@ -10,12 +10,24 @@ export default function CovidNumbers(){
   const [covid19CountryRecovered, setCovid19CountryRecovered] = useState({});
   const [covid19CountryDeaths, setCovid19CountryDeaths] = useState({});
   const [countries, setCountries] = useState([]);
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(null);
+  const [selectedCountryData, setSelectedCountryData] = useState(null);
+
+  // const [state, setState] = useState({
+  //   confirmed: {},
+  //   recovered: {},
+  //   deaths: {},
+  //   countryConfirmed: {},
+  //   countryRecovered: {},
+  //   countryDeaths: {},
+  //   countries: [],
+  //   selectedCountry: ''
+  // })
   
 
   async function getCovid19Data(){
     try{
-      const data = await apiServce.getCovid19Data();
+      const data = await apiService.getCovid19Data();
       setCovid19Confirmed(data.data.confirmed);
       setCovid19Recovered(data.data.recovered);
       setCovid19Deaths(data.data.deaths);
@@ -26,7 +38,7 @@ export default function CovidNumbers(){
 
   async function getCovid19CountryData(){
     try{
-      const data = await apiServce.getCovid19CountryData();
+      const data = await apiService.getCovid19CountryData();
       console.log(data);
       setCovid19CountryConfirmed(data.data.confirmed);
       setCovid19CountryRecovered(data.data.recovered);
@@ -38,7 +50,7 @@ export default function CovidNumbers(){
 
   async function getCountries(){
     try{
-      const data = await apiServce.getCountries();
+      const data = await apiService.getCountries();
       console.log(data);
       setCountries(data.data.countries);
     }catch(err){
@@ -46,19 +58,47 @@ export default function CovidNumbers(){
     }
   }
 
-  const listCountries = countries.map(e => {
-    return <Dropdown.Item key={e.name} text={e.name}/>
+
+
+  const countryOptions = countries.map(e => {
+    return {
+      text: e.name,
+      key: e.name,
+      value: e.name,
+      name: e.name.toLowerCase()
+    }
   })
+
+  const handleCountryName = (evt) => {
+    console.dir(evt.target.textContent);
+    setSelectedCountry(evt.target.textContent);
+    // apiService.getCovid19DropDownData(evt.target.textContent)
+    // .then(data => {
+    //   console.log(data.data);
+    //   setSelectedCountryData(data.data);
+    // }).catch(err => console.log(err))
+    
+  };
+
+  async function getSelectedCountry(){
+    try{
+      const data = await apiService.getCovid19DropDownData(selectedCountry)
+      console.log(data.data.confirmed);
+      setSelectedCountryData(data.data);
+    }catch(err){
+      console.log(err)
+    }
+  }
 
   useEffect(() => {
     getCovid19Data()
     getCovid19CountryData()
     getCountries()
-  }, [])
-
+    getSelectedCountry()
+  }, [selectedCountry])
   return(
     <>
-    <h1>around the world</h1>
+    <h1>Around the world</h1>
     <List>
       <List.Item>
         <List.Header>Total confirmed:</List.Header>{ covid19Confirmed.value }
@@ -87,11 +127,33 @@ export default function CovidNumbers(){
           {covid19CountryDeaths.value}
       </List.Item>
     </List>
-    <Dropdown fluid search selection placeholder='Select country'>
-      <Dropdown.Menu>
-        {listCountries}
-      </Dropdown.Menu>
-    </Dropdown>
+      <Dropdown
+        placeholder='Select Country'
+        fluid
+        search
+        selection
+        options={countryOptions}
+        onChange={handleCountryName}
+      />
+    { selectedCountryData ? <h1>{selectedCountry}</h1> : null}
+    { selectedCountryData ? 
+    <List>
+      <List.Item>
+        <List.Header>Confirmed:</List.Header>
+          {selectedCountryData.confirmed.value}
+      </List.Item>
+      <List.Item>
+        <List.Header>Recovered:</List.Header>
+          {selectedCountryData.recovered.value}
+      </List.Item>
+      <List.Item>
+        <List.Header>Deaths:</List.Header>
+          {selectedCountryData.deaths.value}
+      </List.Item>
+    </List>
+    : 
+    <h1>Country not selected</h1>
+    }
     </>
   )
 }

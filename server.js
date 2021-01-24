@@ -19,11 +19,12 @@ app.use(require('./config/auth'));
 // api routes must be before the "catch all" route
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/covid19', require('./routes/api/covid19'));
+app.use('/api/covid19/usa', require('./routes/api/covid19Country'));
+app.use('/api/covid19/country', require('./routes/api/covid19DropDownData'));
+app.use('/api/covid19/countries', require('./routes/api/covid19Countries'));
 app.use('/api/reddit', require('./routes/api/reddit'));
 app.use('/api/youtube', require('./routes/api/youtube'));
 app.use('/api/articles', require('./routes/api/articles'));
-app.use('/api/covid19/country', require('./routes/api/covid19Country'));
-app.use('/api/covid19/countries', require('./routes/api/covid19Countries'));
 // "catch all" route
 app.get('/*', function(req, res) {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));

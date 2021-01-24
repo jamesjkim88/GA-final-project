@@ -14,6 +14,14 @@ async function getCovid19CountryData(req, res){
     }).catch(err => console.log(err));
 }
 
+async function getCovid19DropDownData(req, res){
+  console.log("req.params: ", req.params);
+  axios.get('https://covid19.mathdro.id/api/countries/' + req.params.country)
+    .then(function({ data }){
+      res.status(200).json(data);
+    }).catch(err => console.log(err));
+}
+
 async function getCountries(req, res){
   axios.get('https://covid19.mathdro.id/api/countries')
     .then(function({ data }){
@@ -24,5 +32,6 @@ async function getCountries(req, res){
 module.exports = {
   getCovid19Data,
   getCovid19CountryData,
-  getCountries
+  getCountries,
+  getCovid19DropDownData
 }

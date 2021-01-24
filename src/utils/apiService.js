@@ -11,10 +11,17 @@ function getCovid19Data(){
 }
 
 function getCovid19CountryData(){
-  return axios.get('/api/covid19/country')
+  return axios.get('/api/covid19/usa')
     .then(data => {
       if(data.statusText === "OK") return data;
     }).catch(err => console.log(err))
+}
+
+function getCovid19DropDownData(country){
+  return axios.get('/api/covid19/country/' + country)
+    .then(data => {
+      if(data.statusText === "OK") return data;
+    }).catch(err => console.log("drop down err: ", err))
 }
 
 function getCountries(){
@@ -51,5 +58,6 @@ export default {
   getYoutubeData,
   getNewsArticles,
   getCovid19CountryData,
-  getCountries
+  getCountries,
+  getCovid19DropDownData
 }
