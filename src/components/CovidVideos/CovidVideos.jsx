@@ -22,8 +22,8 @@ export default function CovidVideo(){
   const mapVids = youtubeData.map((e,i) => {
     console.log(e.snippet.thumbnails.default)
     return(
-         <Card>
-    <Image src={e.snippet.thumbnails.default.url} wrapped ui={false} />
+         <Card centered>
+    <Image src={e.snippet.thumbnails.medium.url} wrapped ui={false} />
     <Card.Content>
       <Card.Header>{e.snippet.channelTitle}</Card.Header>
       <Card.Meta>{e.snippet.publishedAt}</Card.Meta>
@@ -37,24 +37,7 @@ export default function CovidVideo(){
 
   return(
     <>
-    <h1>{mapVids}</h1>
-
-    {/* <Card>
-    <Image src='/images/avatar/large/daniel.jpg' wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>Daniel</Card.Header>
-      <Card.Meta>Joined in 2016</Card.Meta>
-      <Card.Description>
-        Daniel is a comedian living in Nashville.
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-      <a>
-        <Icon name='user' />
-        10 Friends
-      </a>
-    </Card.Content>
-  </Card> */}
+    {mapVids}
     </>
   )
 }
