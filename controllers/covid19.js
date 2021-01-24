@@ -4,14 +4,14 @@ async function getCovid19Data(req, res){
   axios.get('https://covid19.mathdro.id/api')
     .then(function({ data }){
       res.status(200).json(data);
-    }).catch(err => console.log(err));
+  }).catch(err => console.log(err));
 }
 
 async function getCovid19CountryData(req, res){
   axios.get('https://covid19.mathdro.id/api/countries/usa')
     .then(function({ data }){
       res.status(200).json(data);
-    }).catch(err => console.log(err));
+  }).catch(err => console.log(err));
 }
 
 async function getCovid19DropDownData(req, res){
@@ -19,14 +19,14 @@ async function getCovid19DropDownData(req, res){
   axios.get('https://covid19.mathdro.id/api/countries/' + req.params.country)
     .then(function({ data }){
       res.status(200).json(data);
-    }).catch(err => console.log(err));
+  }).catch(err => console.log(err));
 }
 
 async function getCountries(req, res){
   axios.get('https://covid19.mathdro.id/api/countries')
     .then(function({ data }){
       res.status(200).json(data);
-    }).catch(err => console.log(err));
+  }).catch(err => console.log(err));
 }
 
 module.exports = {

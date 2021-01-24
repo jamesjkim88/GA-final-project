@@ -15,6 +15,7 @@ export default function CovidVideo(){
       console.log(err)
     }
   }
+  
   useEffect(() => {
     getYoutubeData()
   }, [])
@@ -22,22 +23,20 @@ export default function CovidVideo(){
   const mapVids = youtubeData.map((e,i) => {
     console.log(e.snippet.thumbnails.default)
     return(
-         <Card centered>
-    <Image src={e.snippet.thumbnails.medium.url} wrapped ui={false} />
-    <Card.Content>
-      <Card.Header>{e.snippet.channelTitle}</Card.Header>
-      <Card.Meta>{e.snippet.publishedAt}</Card.Meta>
-      <Card.Description>
-        {e.snippet.description}
-      </Card.Description>
-    </Card.Content>
-  </Card> 
+      <Card centered>
+        <Image src={e.snippet.thumbnails.medium.url} wrapped ui={false} />
+        <Card.Content>
+          <Card.Header>{e.snippet.channelTitle}</Card.Header>
+          <Card.Meta>{e.snippet.publishedAt}</Card.Meta>
+          <Card.Description>
+            {e.snippet.description}
+          </Card.Description>
+        </Card.Content>
+      </Card> 
     )
   });
 
   return(
-    <>
     {mapVids}
-    </>
   )
 }

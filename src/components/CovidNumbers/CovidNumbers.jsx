@@ -57,9 +57,7 @@ export default function CovidNumbers(){
       console.log(err);
     }
   }
-
-
-
+  
   const countryOptions = countries.map(e => {
     return {
       text: e.name,
@@ -72,12 +70,6 @@ export default function CovidNumbers(){
   const handleCountryName = (evt) => {
     console.dir(evt.target.textContent);
     setSelectedCountry(evt.target.textContent);
-    // apiService.getCovid19DropDownData(evt.target.textContent)
-    // .then(data => {
-    //   console.log(data.data);
-    //   setSelectedCountryData(data.data);
-    // }).catch(err => console.log(err))
-    
   };
 
   async function getSelectedCountry(){
@@ -96,6 +88,7 @@ export default function CovidNumbers(){
     getCountries()
     getSelectedCountry()
   }, [selectedCountry])
+
   return(
     <>
     <h1>Around the world</h1>
