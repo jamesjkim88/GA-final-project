@@ -6,9 +6,23 @@ export default function CovidNumbers(){
   const [covid19Confirmed, setCovid19Confirmed] = useState({});
   const [covid19Recovered, setCovid19Recovered] = useState({});
   const [covid19Deaths, setCovid19Deaths] = useState({});
+
+  // const [rowCovid19Data, setRowCovid19Data] = useState({
+  //   confirmed: '',
+  //   deaths: '',
+  //   recovered: '',
+  // });
+
   const [covid19CountryConfirmed, setCovid19CountryConfirmed] = useState({});
   const [covid19CountryRecovered, setCovid19CountryRecovered] = useState({});
   const [covid19CountryDeaths, setCovid19CountryDeaths] = useState({});
+
+  // const [hotSpotData, setHotSpotData] = useState({
+  //   confirmed: '',
+  //   deaths: '',
+  //   recovered: '',
+  // });
+
   const [countries, setCountries] = useState([]);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [selectedCountryData, setSelectedCountryData] = useState(null);

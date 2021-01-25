@@ -16,8 +16,8 @@ export default function Homepage({ user }){
         <Grid.Column>
           <Segment><CovidNumbers/></Segment>
         </Grid.Column>
-        <Grid.Column>
-          <Segment><CovidVideos/></Segment>
+        <Grid.Column className="youtube-col">
+          <Segment className="videos youtube-vids"><CovidVideos/></Segment>
         </Grid.Column>
         <Grid.Column>
           <Segment className="threads reddit"><CovidReddit /></Segment>

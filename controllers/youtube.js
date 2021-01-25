@@ -6,7 +6,7 @@ async function getYoutubeData(req, res){
   await axios.get('https://www.googleapis.com/youtube/v3/search', {
     params: {
       part: 'snippet',
-      maxResults: 1,
+      maxResults: 50,
       order: 'date',
       q: "covid-19 news",
       relevanceLanguage: 'en',
