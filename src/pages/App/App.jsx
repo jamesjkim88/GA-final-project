@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <Switch>
         <Route exact path="/">
-            <Homepage user={user} handleLogout={handleLogout}/>
+            <Homepage user={user} handleLogout={handleLogout} handleSignUpOrLogin={ handleSignUpOrLogin }/>
         </Route>
         <Route exact path="/login">
             <LoginPage handleSignUpOrLogin={ handleSignUpOrLogin }/>
@@ -40,9 +40,9 @@ function App() {
         <Route exact path="/signup">
           <SignupPage handleSignUpOrLogin={ handleSignUpOrLogin }/>
         </Route>
-        <Route exact path="/:id">
+        {/* <Route exact path="/:id">
           <Profilepage user={user}/>
-        </Route>
+        </Route> */}
         {/* {userService.getUser() ? 
             <>
                 <Route exact path="/">

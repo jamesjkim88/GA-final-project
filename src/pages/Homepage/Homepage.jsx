@@ -7,7 +7,7 @@ import CovidReddit from '../../components/CovidReddit/CovidReddit';
 import CovidArticles from '../../components/CovidArticles/CovidArticles';
 import * as archiveService from '../../utils/archiveService';
 
-export default function Homepage({ user, handleUserPost, userPosts }){
+export default function Homepage({ user, handleUserPost, userPosts, handleSignUpOrLogin }){
   console.log(user)
 
   async function addToArchive(postId){
@@ -29,7 +29,7 @@ export default function Homepage({ user, handleUserPost, userPosts }){
   }
   return(
     <>
-      <Navbar user={user}/>
+      <Navbar user={user} handleSignUpOrLogin={ handleSignUpOrLogin } handleUserPost={handleUserPost}/>
       {/* { user ? <h1>Home page for {user.username}</h1> : <br/> } */}
       <h1>Covid News World Wide</h1>
       <br/>
