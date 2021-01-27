@@ -7,7 +7,6 @@ import userService from '../../utils/userService';
 import LoginPage from '../LoginPage/LoginPage';
 import Homepage from '../Homepage/Homepage';
 import Profilepage from '../ProfilePage/Profilepage';
-import axios from 'axios';
 
 function App() {
 
@@ -21,6 +20,7 @@ function App() {
 
   function handleUserPost(data){
     setUser(data)
+      // handleUserPost={handleUserPost}
   }
 
   function handleLogout(){
@@ -28,7 +28,7 @@ function App() {
     setUser({user:null})
   }
 
-  // handleUserPost={handleUserPost}
+
 
   return (
     <div className="App">
