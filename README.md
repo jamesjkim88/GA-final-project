@@ -3,8 +3,10 @@
 <img src="https://i.imgur.com/AZtIggj.png" alt="screen shot 1" />
 <img src="https://i.imgur.com/yoOiBjA.png" alt="screen shot 2" />
 
+## Covid News World Wide
+Check the latest Covid-19 news, stats, reddit posts, and youtube videos, and it's ad-free! Just give me your data.
 
-#### Stack Used?
+### Stack Used?
 - Mern Stack
 
  #### To start...
@@ -14,5 +16,5 @@
    4. After all packages have been installed type 'nodemon' on one terminal and 'npm start' on another terminal on root directory via terminal
    5. Once you are connected to local server and db, sign in with your Google Account via Google OAuth
 
-#### Check it out!
+### Check it out!
 [Covid News World Wide](https://covid-news-world-wide.herokuapp.com/)
