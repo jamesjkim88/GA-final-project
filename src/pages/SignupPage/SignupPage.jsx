@@ -89,14 +89,6 @@ export default function SignUpPage(props){
                   required
                 />
                 <Form.TextArea label='bio' placeholder='Tell us more about your dogs...' onChange={handleChange} name="bio"/>
-                <Form.Field> 
-                    <Form.Input
-                      type="file"
-                      name="photo"
-                      placeholder="upload image"
-                      onChange={handleFileInput}
-                    />      
-                </Form.Field>
                 <Button
                   type="submit"
                   className="btn"

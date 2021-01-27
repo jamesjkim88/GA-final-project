@@ -53,7 +53,6 @@ export default function CovidNumbers(){
   async function getCovid19CountryData(){
     try{
       const data = await apiService.getCovid19CountryData();
-      console.log(data);
       setCovid19CountryConfirmed(data.data.confirmed);
       setCovid19CountryRecovered(data.data.recovered);
       setCovid19CountryDeaths(data.data.deaths);
@@ -65,7 +64,6 @@ export default function CovidNumbers(){
   async function getCountries(){
     try{
       const data = await apiService.getCountries();
-      console.log(data);
       setCountries(data.data.countries);
     }catch(err){
       console.log(err);
@@ -89,7 +87,6 @@ export default function CovidNumbers(){
   async function getSelectedCountry(){
     try{
       const data = await apiService.getCovid19DropDownData(selectedCountry)
-      console.log(data.data.confirmed);
       setSelectedCountryData(data.data);
     }catch(err){
       console.log(err)
@@ -101,7 +98,7 @@ export default function CovidNumbers(){
     getCovid19CountryData()
     getCountries()
     getSelectedCountry()
-  }, [selectedCountry])
+  }, [])
 
   return(
     <>

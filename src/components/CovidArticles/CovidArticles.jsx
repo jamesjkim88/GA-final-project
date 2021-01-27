@@ -21,8 +21,9 @@ export default function CovidArticles(){
       return (
         <List.Item key={i}>
         <List.Content>
-          <List.Header as='a' href="#">{ e.title }</List.Header>
+          <List.Header as='a' href={e.url}>{ e.title }</List.Header>
           <List.Description as='a'>By { e.author } and Published by {e.publishedAt}</List.Description>
+        <List.Icon name='star' size='large' verticalAlign='middle' />
         </List.Content>
       </List.Item>
       )
