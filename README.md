@@ -1,7 +1,7 @@
 # GA Final Project Covid News World Wide
 
-<img src="https://imgur.com/AZtIggj" alt="screen shot 1" />
-<img src="https://imgur.com/yoOiBjA" alt="screen shot 2" />
+<img src="https://i.imgur.com/AZtIggj" alt="screen shot 1" />
+<img src="https://i.imgur.com/yoOiBjA" alt="screen shot 2" />
 
 
 #### Stack Used?
