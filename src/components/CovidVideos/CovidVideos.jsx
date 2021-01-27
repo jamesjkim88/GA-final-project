@@ -28,6 +28,7 @@ export default function CovidVideo(){
       txt.innerHTML = html;
       return txt.value;
     })(e.snippet.title)
+
     return(
       <>
       <Modal

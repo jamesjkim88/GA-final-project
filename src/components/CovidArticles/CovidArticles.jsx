@@ -22,7 +22,7 @@ export default function CovidArticles({ user }){
         <List.Item key={i}>
         <List.Content>
           <List.Header as='a' href={e.url}>{ e.title }</List.Header>
-          <List.Description as='a'>By { e.author } and Published by {e.publishedAt}</List.Description>
+          <List.Description as='a'>By { e.author }<br/>Published {e.publishedAt}</List.Description>
           {
         user ? <List.Icon name='star' size='large' color="yellow" verticalAlign='middle'/> : null
         }
