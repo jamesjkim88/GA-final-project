@@ -16,8 +16,6 @@ function App() {
     setUser(userService.getUser());
   }
 
-  console.log(user.posts);
-
   function handleUserPost(data){
     setUser(data)
       // handleUserPost={handleUserPost}
