@@ -43,7 +43,9 @@ export default function CovidReddit({ addToArchive, removeFromArchive, user}){
       <List.Content>
         <List.Header as='a' href={e.data.url}>{ e.data.title }</List.Header>
         <List.Description as='a'>Posted { epochConverter(e.data.created) } hours ago</List.Description>
-        <List.Icon name='star' size='large' color="yellow" verticalAlign='middle' onClick={clickThread}/>
+        {
+        user ? <List.Icon name='star' size='large' color="yellow" verticalAlign='middle' onClick={clickThread}/> : null
+        }
         <br/>
       </List.Content>
     </List.Item>

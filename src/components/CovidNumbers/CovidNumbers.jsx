@@ -98,7 +98,7 @@ export default function CovidNumbers(){
     getCovid19CountryData()
     getCountries()
     getSelectedCountry()
-  }, [])
+  }, [selectedCountry])
 
   return(
     <>

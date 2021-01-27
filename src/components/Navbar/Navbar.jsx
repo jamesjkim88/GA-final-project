@@ -9,7 +9,7 @@ export default function({ user, handleLogout }){
     <Dropdown text={ user ? user.username : 'profile' } pointing className='link item'>
       <Dropdown.Menu>
         <Dropdown.Header>Categories</Dropdown.Header>
-        <Dropdown.Item onClick={handleLogout}>Logout</Dropdown.Item>
+        <Dropdown.Item onClick={handleLogout}>{ user ? 'logout' : 'sign up' }</Dropdown.Item>
         <Dropdown.Item>Home Goods</Dropdown.Item>
         <Dropdown.Item>Bedroom</Dropdown.Item>
         <Dropdown.Divider />

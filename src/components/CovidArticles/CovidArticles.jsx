@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import apiService from '../../utils/apiService';
 import { List } from 'semantic-ui-react';
 
-export default function CovidArticles(){
+export default function CovidArticles({ user }){
   const [articles, setArticles] = useState([]);
 
   async function getNewsArticles(){
@@ -23,7 +23,9 @@ export default function CovidArticles(){
         <List.Content>
           <List.Header as='a' href={e.url}>{ e.title }</List.Header>
           <List.Description as='a'>By { e.author } and Published by {e.publishedAt}</List.Description>
-        <List.Icon name='star' size='large' verticalAlign='middle' />
+          {
+        user ? <List.Icon name='star' size='large' color="yellow" verticalAlign='middle'/> : null
+        }
         </List.Content>
       </List.Item>
       )
