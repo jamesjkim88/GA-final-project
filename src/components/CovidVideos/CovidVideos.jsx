@@ -11,7 +11,6 @@ export default function CovidVideo(){
     try{
       const data = await apiService.getYoutubeData()
       setYoutubeData(data.data.items)
-      console.log(data.data.items);
     }catch(err){
       console.log(err)
     }

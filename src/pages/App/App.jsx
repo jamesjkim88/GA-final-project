@@ -6,7 +6,6 @@ import SignupPage from '../SignupPage/SignupPage';
 import userService from '../../utils/userService';
 import LoginPage from '../LoginPage/LoginPage';
 import Homepage from '../Homepage/Homepage';
-import Profilepage from '../ProfilePage/Profilepage';
 
 function App() {
 
@@ -21,9 +20,9 @@ function App() {
       // handleUserPost={handleUserPost}
   }
 
-  function handleLogout(){
+  function handleLogout() {
     userService.logout();
-    setUser({user:null})
+    setUser(null);
   }
 
 

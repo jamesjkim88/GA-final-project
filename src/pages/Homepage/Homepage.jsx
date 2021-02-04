@@ -7,14 +7,12 @@ import CovidReddit from '../../components/CovidReddit/CovidReddit';
 import CovidArticles from '../../components/CovidArticles/CovidArticles';
 import * as archiveService from '../../utils/archiveService';
 
-export default function Homepage({ user, handleUserPost, userPosts, handleSignUpOrLogin }){
-  console.log(user)
+export default function Homepage({ user, handleLogout, userPosts, handleSignUpOrLogin }){
 
   async function addToArchive(postId){
     try {
       const data = await archiveService.addToArchive(postId);
       console.log(data, ' this is from addLike');
-      handleUserPost(data.data)
       console.log(userPosts, "user.posts");
     } catch(err){
       console.log(err)
@@ -29,7 +27,7 @@ export default function Homepage({ user, handleUserPost, userPosts, handleSignUp
   }
   return(
     <>
-      <Navbar user={user} handleSignUpOrLogin={ handleSignUpOrLogin } handleUserPost={handleUserPost}/>
+      <Navbar user={user} handleSignUpOrLogin={ handleSignUpOrLogin } handleLogout={handleLogout}/>
       {/* { user ? <h1>Home page for {user.username}</h1> : <br/> } */}
       <h1>Covid News World Wide</h1>
       <br/>
